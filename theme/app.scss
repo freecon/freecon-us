@@ -1,0 +1,18 @@
+$body-font-family: "Montserrat";
+$header-font-family: "Montserrat";
+
+@import "foundation";
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+  background: url(../bridge.jpg) center center no-repeat;
+}
+
+#masthead {
+  background-color: rgba(0, 0, 0, 0.75);
+  text-align: center;
+  h1 {
+    color: #fff;
+  }
+}

@@ -1,0 +1,19 @@
+test:
+  override:
+    - gulp build
+  post:
+    - mkdir pub
+    - cp -Rvp index.html sutro.jpg lib/ pub/
+deploy:
+  divshot:
+    branch: master
+    commands:
+      - mkdir -p ~/.divshot/config/
+      - echo "$DIVSHOT_TOKEN" > ~/.divshot/config/user.json
+      - divshot push
+      - divshot promote development production
+    branch: /./
+    commands:
+      - mkdir -p ~/.divshot/config/
+      - echo "$DIVSHOT_TOKEN" > ~/.divshot/config/user.json
+      - divshot push

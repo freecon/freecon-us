@@ -3,20 +3,13 @@ dependencies:
     - npm install -g divshot-cli gulp-cli
 test:
   override:
-    - gulp build
-  post:
-    - mkdir pub
-    - cp -Rvp index.html sutro.jpg lib/ pub/
+    - gulp 
 deployment:
   divshot:
     branch: master
     commands:
       - mkdir -p ~/.divshot/config/
       - echo "$DIVSHOT_TOKEN" > ~/.divshot/config/user.json
-      - divshot push
-      - divshot promote development production
-    branch: /./
-    commands:
-      - mkdir -p ~/.divshot/config/
-      - echo "$DIVSHOT_TOKEN" > ~/.divshot/config/user.json
+      - mkdir pub
+      - cp -Rvp index.html sutro.jpg lib/ pub/
       - divshot push

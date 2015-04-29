@@ -1,18 +1,59 @@
 $body-font-family: "Montserrat";
 $header-font-family: "Montserrat";
+$row-width: 1600px;
+$primary-color: rgb(0, 128, 255);
+$secondary-color: #f5893c;
 
 @import "foundation";
 
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 body {
-  background: url(../bridge.jpg) center center no-repeat;
+  background: url(../sutro.jpg) center center no-repeat;
+  background-size: auto 100vw;
 }
 
-#masthead {
-  background-color: rgba(0, 0, 0, 0.75);
-  text-align: center;
+#the-deets {
+  > .row {
+    .subscribe {
+      margin-top: 2em;
+    }
+    background-color: rgba($primary-color, 0.85);
+    padding: 2em;
+    margin-top: 2em;
+    color: #fff;
+    a {
+      color: #fff;
+    }
+    h2 {
+      font-size: xx-large;
+      color: #fff;
+    }
+  }
+}
+
+#what-it-is {
+  .columns {
+    font-size: x-large;
+    background-color: #fff;
+  }
+}
+
+.hero {
+  border-bottom: 5px solid black;
+  border-top: 5px solid black;
+}
+
+.top-bar {
+  margin-bottom: 5em;
+  height: 72pt;
+  background-color: $primary-color;
+}
+
+.title-area {
   h1 {
     color: #fff;
+    font-size: 72pt !important;
+    line-height: 72pt !important;
   }
 }

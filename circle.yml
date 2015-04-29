@@ -1,6 +1,6 @@
 dependencies:
   post:
-    - npm install -g divshot-cli
+    - npm install -g divshot-cli gulp-cli
 test:
   override:
     - gulp build

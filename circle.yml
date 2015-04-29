@@ -1,10 +1,13 @@
+dependencies:
+  post:
+    - npm install -g divshot-cli
 test:
   override:
     - gulp build
   post:
     - mkdir pub
     - cp -Rvp index.html sutro.jpg lib/ pub/
-deploy:
+deployment:
   divshot:
     branch: master
     commands:

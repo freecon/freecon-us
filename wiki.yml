@@ -20,5 +20,5 @@
         volumes:
           - "/srv/spacewiki/spacewiki.sqlite3:/srv/spacewiki/spacewiki.sqlite3:rw"
           - "/srv/spacewiki/uploads:/srv/spacewiki/uploads:rw"
-      restart_policy: on-failure
-      state: reloaded
+        restart_policy: on-failure
+        state: reloaded

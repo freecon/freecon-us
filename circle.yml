@@ -1,6 +1,11 @@
 machine:
   services:
     - docker
+dependencies:
+  override:
+    - apt-get install -qq software-properties-common
+    - add-apt-repository -y ppa:ansible/ansible
+    - apt-get install -qq ansible
 test:
   override:
     - docker build -t freecon/spacewiki .

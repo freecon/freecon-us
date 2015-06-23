@@ -1,15 +1,13 @@
-dependencies:
-  post:
-    - npm install -g divshot-cli gulp-cli
+machine:
+  services:
+    - docker
 test:
   override:
-    - gulp 
+    - docker build -t freecon/spacewiki .
 deployment:
-  divshot:
+  fermiac:
     branch: master
     commands:
-      - mkdir -p ~/.divshot/config/
-      - echo "$DIVSHOT_TOKEN" > ~/.divshot/config/user.json
-      - mkdir pub
-      - cp -Rvp index.html sutro.jpg lib/ pub/
-      - divshot push
+      - docker login -u $DOCKER_USERNAME -e $DOCKER_EMAIL -p $DOCKER_PASSWORD
+      - docker push freecon/spacewiki
+      - ansible-playbook -i hosts.txt wiki.yml -u spacewiki-deploy

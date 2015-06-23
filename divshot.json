@@ -1,7 +1,0 @@
-{
-  "name": "freecon",
-  "root": "./pub/",
-  "clean_urls": false,
-  "error_page": "error.html",
-  "exclude": ["./node_modules/*", "./theme/*"]
-}

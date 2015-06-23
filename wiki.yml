@@ -1,0 +1,24 @@
+---
+- name: Deploy spacewiki on fermiac
+  hosts: fermiac.freecon.us
+  sudo: true
+  tasks:
+    - name: Create spacewiki paths
+      file: state=directory name={{item}}
+      with_items:
+        - /srv/spacewiki
+        - /srv/spacewiki/uploads
+    - name: Install packages
+      apt: name=python-docker state=installed
+    - name: Stand up spacewiki container
+      docker: 
+        image: freecon/spacewiki
+        ports:
+          - "127.0.0.1:5000:5000"
+        pull: always
+        name: spacewiki
+        volumes:
+          - "/srv/spacewiki/spacewiki.sqlite3:/srv/spacewiki/spacewiki.sqlite3:rw"
+          - "/srv/spacewiki/uploads:/srv/spacewiki/uploads:rw"
+      restart_policy: on-failure
+      state: reloaded
